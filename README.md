@@ -63,3 +63,22 @@ Refs:
 https://github.com/graphql/graphiql
 https://www.prisma.io/blog/graphql-sdl-schema-definition-language-6755bcb9ce51
 https://github.com/graphql/graphql-playground
+
+## Warning
+
+Opened Issues: https://github.com/howtographql/howtographql/issues/1471
+
+Other Issues:
+
+1. https://github.com/howtographql/howtographql/issues/1450
+2. https://github.com/howtographql/howtographql/issues/1409
+3. https://github.com/howtographql/howtographql/issues/1326
+
+The official repo looks EOF
+
+
+## Personal Opinion:
+
+The lack of standards on the specification is leading to different approaches. 
+
+Watch for: https://github.com/graphql-go/graphql
