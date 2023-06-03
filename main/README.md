@@ -7,8 +7,10 @@
 go run github.com/99designs/gqlgen init
 DEFINE SCHEMA
 go run github.com/99designs/gqlgen generate (*1)
+go run server.go
 
 ```
+Go to - http://localhost:8080/
 
 (*1) - edit graph/schema.resolvers.go file and delete functions CreateTodo and Todos. Now run the command again.
 

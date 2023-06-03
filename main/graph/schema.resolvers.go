@@ -7,12 +7,18 @@ package graph
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"tutorialGo/v2/graph/model"
+	"tutorialGo/v2/internal/links"
 )
 
 // CreateLink is the resolver for the createLink field.
 func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) (*model.Link, error) {
-	panic(fmt.Errorf("not implemented: CreateLink - createLink"))
+	var link links.Link
+	link.Title = input.Title
+	link.Address = input.Address
+	linkID := link.Save()
+	return &model.Link{ID: strconv.FormatInt(linkID, 10), Title: link.Title, Address: link.Address}, nil
 }
 
 // CreateUser is the resolver for the createUser field.
@@ -30,9 +36,13 @@ func (r *mutationResolver) RefreshToken(ctx context.Context, input model.Refresh
 	panic(fmt.Errorf("not implemented: RefreshToken - refreshToken"))
 }
 
-// Links is the resolver for the links field.
 func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
-	panic(fmt.Errorf("not implemented: Links - links"))
+	var resultLinks []*model.Link
+	dbLinks := links.GetAll()
+	for _, link := range dbLinks {
+		resultLinks = append(resultLinks, &model.Link{ID: link.ID, Title: link.Title, Address: link.Address})
+	}
+	return resultLinks, nil
 }
 
 // Mutation returns MutationResolver implementation.
